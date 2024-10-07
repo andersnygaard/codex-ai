@@ -3,7 +3,7 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { TsoaRoute, fetchMiddlewares, ExpressTemplateService } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { ScriptController } from './controllers/scriptController';
+import { ScriptOutlineController } from './controllers/scriptOutlineController';
 import type { Request as ExRequest, Response as ExResponse, RequestHandler, Router } from 'express';
 
 
@@ -15,6 +15,14 @@ const models: TsoaRoute.Models = {
         "dataType": "refObject",
         "properties": {
             "message": {"dataType":"string","required":true},
+        },
+        "additionalProperties": false,
+    },
+    // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+    "ScriptContent": {
+        "dataType": "refObject",
+        "properties": {
+            "content": {"dataType":"string","required":true},
         },
         "additionalProperties": false,
     },
@@ -36,12 +44,13 @@ export function RegisterRoutes(app: Router) {
 
 
     
-        app.post('/Script',
-            ...(fetchMiddlewares<RequestHandler>(ScriptController)),
-            ...(fetchMiddlewares<RequestHandler>(ScriptController.prototype.setScript)),
+        app.post('/ScriptOutline',
+            ...(fetchMiddlewares<RequestHandler>(ScriptOutlineController)),
+            ...(fetchMiddlewares<RequestHandler>(ScriptOutlineController.prototype.setScript)),
 
-            async function ScriptController_setScript(request: ExRequest, response: ExResponse, next: any) {
+            async function ScriptOutlineController_setScript(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
+                    body: {"in":"body","name":"body","required":true,"ref":"ScriptContent"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -50,7 +59,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = templateService.getValidatedArgs({ args, request, response });
 
-                const controller = new ScriptController();
+                const controller = new ScriptOutlineController();
 
               await templateService.apiHandler({
                 methodName: 'setScript',
@@ -65,11 +74,11 @@ export function RegisterRoutes(app: Router) {
             }
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-        app.get('/Script',
-            ...(fetchMiddlewares<RequestHandler>(ScriptController)),
-            ...(fetchMiddlewares<RequestHandler>(ScriptController.prototype.getScript)),
+        app.get('/ScriptOutline',
+            ...(fetchMiddlewares<RequestHandler>(ScriptOutlineController)),
+            ...(fetchMiddlewares<RequestHandler>(ScriptOutlineController.prototype.getScript)),
 
-            async function ScriptController_getScript(request: ExRequest, response: ExResponse, next: any) {
+            async function ScriptOutlineController_getScript(request: ExRequest, response: ExResponse, next: any) {
             const args: Record<string, TsoaRoute.ParameterSchema> = {
             };
 
@@ -79,7 +88,7 @@ export function RegisterRoutes(app: Router) {
             try {
                 validatedArgs = templateService.getValidatedArgs({ args, request, response });
 
-                const controller = new ScriptController();
+                const controller = new ScriptOutlineController();
 
               await templateService.apiHandler({
                 methodName: 'getScript',

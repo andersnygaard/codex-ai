@@ -1,16 +1,21 @@
 import express, { Application } from 'express';
 import swaggerUi from "swagger-ui-express";
 import morgan from 'morgan';
-import { RegisterRoutes } from "./routes";
+import path from 'path';
+import { RegisterRoutes } from "./api/routes";
 
-class CodexApi {
+class WebServer {
   private app: Application = express();
 
   constructor() {
     this.app.use(express.json());
     this.app.use(morgan("tiny"));
     this.app.use(express.static("public"));
+    
+    // API routes
     RegisterRoutes(this.app);
+
+    // Swagger docs route
     this.app.use(
       "/docs",
       swaggerUi.serve,
@@ -20,6 +25,14 @@ class CodexApi {
         },
       })
     );
+
+    // Serve the Vue app's static files from /spa/dist
+    this.app.use(express.static(path.join(__dirname, '..', 'src', 'spa', 'dist')));
+
+    // Handle all SPA routes by serving the index.html
+    this.app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '..', 'spa', 'src', 'dist', 'index.html'));
+    });
   }
 
   public start = async () => {
@@ -31,6 +44,6 @@ class CodexApi {
   }
 }
 
-const instance = new CodexApi();
+const instance = new WebServer();
 
 export default instance;

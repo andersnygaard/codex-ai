@@ -18,6 +18,18 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"ScriptContent": {
+				"properties": {
+					"content": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"content"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
@@ -31,7 +43,7 @@
 		"contact": {}
 	},
 	"paths": {
-		"/Script": {
+		"/ScriptOutline": {
 			"post": {
 				"operationId": "SetScript",
 				"responses": {
@@ -47,7 +59,17 @@
 					}
 				},
 				"security": [],
-				"parameters": []
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/ScriptContent"
+							}
+						}
+					}
+				}
 			},
 			"get": {
 				"operationId": "GetScript",
@@ -57,7 +79,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/PingResponse"
+									"type": "string"
 								}
 							}
 						}

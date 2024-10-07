@@ -1,4 +1,4 @@
-import api from './api/CodexApi';
+import webserver from './webserver';
 import bus from './bus/CodexBus';
 import { Container } from 'inversify'
 
@@ -8,7 +8,7 @@ async function start() {
   const container = new Container()
 
   await bus.start(container);
-  await api.start();
+  await webserver.start();
 }
 
 start();
