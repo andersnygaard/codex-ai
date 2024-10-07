@@ -1,0 +1,5 @@
+{
+    "CodeGPT.apiKey": "OpenAI",
+    "CodeGPT.Autocomplete.enabled": true,
+    "git.ignoreLimitWarning": true
+}
