@@ -1,15 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <img alt="Vue logo" src="./assets/image.png" style="height:350px">
   <ScriptOutline msg="Welcome to Your Vue.js App"/>
+  <ScriptOutput></ScriptOutput>
 </template>
 
 <script>
 import ScriptOutline from './components/ScriptOutline.vue'
+import ScriptOutput from './components/ScriptOutput.vue'
 
 export default {
   name: 'App',
   components: {
-    ScriptOutline
+    ScriptOutline,
+    ScriptOutput
   }
 }
 </script>

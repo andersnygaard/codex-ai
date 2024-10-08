@@ -1,8 +1,7 @@
-// webSocketService.ts
 import WebSocket, { Server as WebSocketServer } from 'ws';
 import { Server as HTTPServer, createServer, IncomingMessage, ServerResponse } from 'http';
 
-class WebSocketService {
+class MessageService {
   private wss: WebSocketServer;
   private clients: Set<WebSocket>;
 
@@ -26,7 +25,7 @@ class WebSocketService {
   }
 
   // Method to broadcast a message to all connected clients
-  broadcast(message: string): void {
+  send(message: string): void {
     this.clients.forEach((client) => {
       if (client.readyState === WebSocket.OPEN) {
         client.send(message);
@@ -35,25 +34,24 @@ class WebSocketService {
   }
 }
 
-
+// Create HTTP server only once
 const server = createServer((req: IncomingMessage, res: ServerResponse) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('WebSocket server is running');
-  });
-  
-  // Start the WebSocket service
-  const webSocketService = new WebSocketService(server);
-  
-  // Example: sending a message from the server after 5 seconds
-  setTimeout(() => {
-    webSocketService.broadcast('Hello, this is a message from the server!');
-  }, 5000);
-  
-  // Start the HTTP server
-  server.listen(3000, () => {
-    console.log('Server is listening on port 3000');
-  });
-  
-const instance = new WebSocketService(server);
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.end('WebSocket server is running');
+});
 
-export default instance;
+// Instantiate MessageService only once
+const messageService = new MessageService(server);
+
+// Start sending messages every 5 seconds as an example
+setInterval(() => {
+  messageService.send('Hello, this is a message from the server!');
+}, 5000);
+
+// Start the HTTP server and listen on a port
+server.listen(3001, () => {
+  console.log('Server is listening on port 3001');
+});
+
+// Export the message service instance for use elsewhere
+export default messageService;
