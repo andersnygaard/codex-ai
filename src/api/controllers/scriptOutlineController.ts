@@ -2,6 +2,8 @@ import { Body, Get, Post, Route } from "tsoa";
 import bus from '../../bus/CodexBus';
 import { ChangeScriptOutlineCommand } from "../../bus/messages/script/changeScriptOutlineCommand";
 import MarkdownService from "../../services/markdownService";
+import generateLocationCommandHandler from "../../bus/handlers/location/generateLocationCommandHandler";
+import { GenerateLocationCommand } from "../../bus/messages/location/generateLocationCommand";
 
 interface PingResponse {
   message: string;
@@ -20,6 +22,7 @@ export class ScriptOutlineController {
     console.log(body.content);
 
     await bus.sendMessage(new ChangeScriptOutlineCommand(body.content));
+    
     return {
       message: "OK",
     };
@@ -31,5 +34,15 @@ export class ScriptOutlineController {
     const data = service.readFromFile();
 
     return data;
+  }
+
+  @Get("/generate")
+  public async generateScript(): Promise<PingResponse> {
+    
+    await bus.sendMessage(new GenerateLocationCommand());
+
+    return {
+      message: "OK",
+    };
   }
 }

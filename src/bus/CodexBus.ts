@@ -1,7 +1,8 @@
 import { Bus, BusInstance, ClassConstructor, InMemoryPersistence, Workflow } from '@node-ts/bus-core';
 import { Command } from '@node-ts/bus-messages';
 import { Container, decorate, injectable } from 'inversify';
-import changeScriptCommandHandler from './handlers/specifications/changeScriptCommandHandler';
+import changeScriptCommandHandler from './handlers/specifications/changeScriptOutlineCommandHandler';
+import generateLocationCommandHandler from './handlers/location/generateLocationCommandHandler';
 
 class CodexBus {
   private bus!: BusInstance;
@@ -17,6 +18,7 @@ class CodexBus {
     
     const config = Bus.configure()
       .withHandler(changeScriptCommandHandler)
+      .withHandler(generateLocationCommandHandler)
       .withPersistence(new InMemoryPersistence())
       .withContainer({
         get <T>(type: ClassConstructor<T>) {

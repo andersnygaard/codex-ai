@@ -1,7 +1,7 @@
 import { handlerFor } from '@node-ts/bus-core';
 import { ChangeScriptOutlineCommand } from '../../messages/script/changeScriptOutlineCommand';
 import MarkdownService from '../../../services/markdownService';
-import bus from '../../../bus/CodexBus';
+import bus from '../../CodexBus';
 import { ScriptOutlineChangedEvent } from '../../messages/script/scriptOutlineChangedEvent';
 
 // Function based handler

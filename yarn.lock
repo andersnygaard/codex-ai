@@ -1393,7 +1393,7 @@ jsonpointer@^5.0.1:
   resolved "https://registry.npmjs.org/jsonpointer/-/jsonpointer-5.0.1.tgz"
   integrity sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==
 
-langchain@^0.2.17:
+langchain@^0.2.20:
   version "0.2.20"
   resolved "https://registry.npmjs.org/langchain/-/langchain-0.2.20.tgz"
   integrity sha512-tbels6Rr524iMM3VOQ4aTGnEOOjAA1BQuBR8u/8gJ2yT48lMtIQRAN32Y4KVjKK+hEWxHHlmLBrtgLpTphFjNA==
@@ -1613,10 +1613,10 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-openai@*, openai@^4.57.3:
-  version "4.67.1"
-  resolved "https://registry.npmjs.org/openai/-/openai-4.67.1.tgz"
-  integrity sha512-2YbRFy6qaYRJabK2zLMn4txrB2xBy0KP5g/eoqeSPTT31mIJMnkT75toagvfE555IKa2RdrzJrZwdDsUipsAMw==
+openai@*, openai@^4.57.3, openai@^4.67.2:
+  version "4.67.2"
+  resolved "https://registry.npmjs.org/openai/-/openai-4.67.2.tgz"
+  integrity sha512-u4FJFGXgqEHrCYcD5jAD4nHj6JCiicH+/dskQY7qka9R6hOw29R0kOz7GwcA9k2JKcLf86lzAWPtPagPbO8KnQ==
   dependencies:
     "@types/node" "^18.11.18"
     "@types/node-fetch" "^2.6.4"
