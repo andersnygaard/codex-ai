@@ -22,6 +22,8 @@ Lokasjoner:
 
 Hotellobbyen – Hotellets hjerte, en elegant og luksuriøs lobby som setter tonen for hele hotellet. Den er innredet med marmor, gullfargede detaljer og en stor lysekrone som henger i midten. Lobbyen fungerer som et sosialt knutepunkt, der både gjester, ansatte og medlemmer av Dregg-Jensen-familien ofte møtes. Det er her mange av de første møtene og dramatiske konfrontasjonene skjer, og atmosfæren veksler mellom høflig profesjonalitet og skjulte intriger.
 
-Georg Dregg-Jensens kontor – Dette er det innerste maktrommet på hotellet, et overdådig kontor med store vinduer som gir utsikt over byen. Rommet er innredet med tunge møbler, mørkt treverk og portretter av tidligere familiemedlemmer, noe som gir det en ærverdig, nesten museumslignende atmosfære. Det er her de store forretningsavgjørelsene tas, og rommet er ofte stedet for intense diskusjoner om hotellets fremtid, familiekonflikter og skjulte avtaler. 
+Georg Dregg-Jensens kontor – Dette er det innerste maktrommet på hotellet, et overdådig kontor med store vinduer som gir utsikt over byen. Rommet er innredet med tunge møbler, mørkt treverk og portretter av tidligere familiemedlemmer, noe som gir det en ærverdig, nesten museumslignende atmosfære. Det er her de store forretningsavgjørelsene tas, og rommet er ofte stedet for intense diskusjoner om hotellets fremtid, familiekonflikter og skjulte avtaler.
 
 Takterrassen – En idyllisk og luksuriøs utendørs oase på toppen av hotellet. Terrassen har en fantastisk utsikt over Oslo, med stilige loungemøbler, en bar og grønne planter som skaper en avslappet, eksklusiv atmosfære. Her finner ofte romantiske møter, hemmelige samtaler og viktige vendepunkt i handlingen sted. Den fredelige atmosfæren står i sterk kontrast til de konfliktene som ofte utspiller seg mellom karakterene som møtes her.
+
+Serien er dyster!

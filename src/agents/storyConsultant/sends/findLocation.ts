@@ -1,15 +1,13 @@
-// reserve-room.ts
-
 import { Command } from '@node-ts/bus-messages'
 import { injectable } from 'inversify'
 
 @injectable()
-export class ChangeScriptOutlineCommand extends Command {
-  $name = 'scriptoutline/posted';
+export class FindLocationCommand extends Command {
+  $name = 'storyConsultant/findLocation';
   $version = 1;
   
   constructor (
-    readonly content: string
+    readonly sceneDescription: string
   ) {
     super()
   }

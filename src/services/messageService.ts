@@ -43,11 +43,6 @@ const server = createServer((req: IncomingMessage, res: ServerResponse) => {
 // Instantiate MessageService only once
 const messageService = new MessageService(server);
 
-// Start sending messages every 5 seconds as an example
-setInterval(() => {
-  messageService.send('Hello, this is a message from the server!');
-}, 5000);
-
 // Start the HTTP server and listen on a port
 server.listen(3001, () => {
   console.log('Server is listening on port 3001');

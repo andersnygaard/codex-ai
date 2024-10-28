@@ -1,15 +1,13 @@
-// reserve-room.ts
-
 import { Command } from '@node-ts/bus-messages'
 import { injectable } from 'inversify'
 
 @injectable()
-export class SpecificationGraded extends Command {
-  $name = 'specifications/graded';
+export class DialogCreatedCommand extends Command {
+  $name = 'screenWriter/dialogCreated';
   $version = 1;
   
   constructor (
-    readonly grade: number,
+    readonly line: string
   ) {
     super()
   }

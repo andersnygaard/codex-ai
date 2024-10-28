@@ -1,8 +1,13 @@
 import { Bus, BusInstance, ClassConstructor, InMemoryPersistence, Workflow } from '@node-ts/bus-core';
 import { Command } from '@node-ts/bus-messages';
 import { Container, decorate, injectable } from 'inversify';
-import changeScriptCommandHandler from './handlers/specifications/changeScriptOutlineCommandHandler';
-import generateLocationCommandHandler from './handlers/location/generateLocationCommandHandler';
+import findLocationCommandHandler from '../agents/locationScout/handles/findLocation';
+import describeSceneCommandHandler from '../agents/screenWriter/handles/describeScene';
+import getDialogCommandHandler from '../agents/screenWriter/handles/getDialog';
+import dialogCreatedCommandHandler from '../agents/storyConsultant/handles/dialogCreated';
+import startSceneCommandHandler from '../agents/storyConsultant/handles/startScene';
+import sceneDescribedCommandHandler from '../agents/storyConsultant/handles/sceneDescribed';
+import locationFoundCommandHandler from '../agents/storyConsultant/handles/locationFound';
 
 class CodexBus {
   private bus!: BusInstance;
@@ -17,8 +22,13 @@ class CodexBus {
     container.bind(BusInstance).toDynamicValue(() => this.bus)
     
     const config = Bus.configure()
-      .withHandler(changeScriptCommandHandler)
-      .withHandler(generateLocationCommandHandler)
+      .withHandler(findLocationCommandHandler)
+      .withHandler(describeSceneCommandHandler)
+      .withHandler(sceneDescribedCommandHandler)
+      .withHandler(getDialogCommandHandler)
+      .withHandler(dialogCreatedCommandHandler)
+      .withHandler(startSceneCommandHandler)
+      .withHandler(locationFoundCommandHandler)
       .withPersistence(new InMemoryPersistence())
       .withContainer({
         get <T>(type: ClassConstructor<T>) {
